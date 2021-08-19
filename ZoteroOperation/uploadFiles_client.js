@@ -41,12 +41,12 @@ var num = 1;
 var zotero_search = new Zotero.Search();
 zotero_search.libraryID = ZoteroPane.getSelectedLibraryID();
 zotero_search.addCondition('tag', 'is', old_name);
-var items_id = await zotero_search.search();
-if (!items_id.length) {
+var items = await zotero_search.search();
+if (!items.length) {
     return "No items found";
 }
 await Zotero.DB.executeTransaction(async function () {
-    for (let id of items_id) {
+    for (let id of items) {
         let item = Zotero.Items.get(id);
         item.addTag(old_name, num);
         await item.save({
@@ -54,7 +54,7 @@ await Zotero.DB.executeTransaction(async function () {
         });
     }
 });
-return items_id.length + " tag(s) updated";
+return items.length + " tag(s) updated";
 
 // ---------------
 
@@ -63,10 +63,11 @@ return items_id.length + " tag(s) updated";
 
 // ---------------
 // 程序3：修改检索获得的相关item之field之名称（未验证）
-var field_name = 'tag';
+var field_name = 'tags';
 var condition = 'is';
-var old_name = "财政政策";
-var new_name = "内容：财政政策";
+var old_name = "货币国际化";
+var new_name = "内容：货币国际化";
+var field_id = Zotero.ItemFields.getID()
 var zotero_search = new Zotero.Search();
 zotero_search.libraryID = ZoteroPane.getSelectedLibraryID();
 zotero_search.addCondition(field_name, condition, old_name);
@@ -76,13 +77,13 @@ if (!items_id.length) {
 }
 await Zotero.DB.executeTransaction(async function () {
     for (let item_id of items_id) {
-        let item = Zotero.Items.get(item_id);
-        let mapped_field_id=zot.
-        await item.save({
-            skipDateModifiedUpdate: true
-        });
+        let item = Zotero.Items.getAsync(item_id);
+        let mapped_field_id = Zotero.ItemFields.getFieldIDFromTypeAndBase(item.itemTypeID, field_name);
+        item.setField(mapped_field_id ? mapped_field_id : field_id, new_name);
+        await item.save();
     }
-});
+}
+);
 return items_id.length + " tag(s) updated";
 
 // ---------------
@@ -102,14 +103,30 @@ if (!items.length) {
 }
 // return(items)
 await Zotero.DB.executeTransaction(async function () {
-    for (let item_id of items_id) {
-        let item = Zotero.Items.get(item_id);
-        let mapped_field_id=zot.
-        await item.save({
-            skipDateModifiedUpdate: true
-        });
+    for (let item of items) {
+        let item = Zotero.Items.get(item);
+        let mapped_field_id = zot.ItemFields.getFieldIDFromTypeAndBase(item.itemTypeID, fieldName);
+        item.setField(mappedFieldID ? mappedFieldID : fieldID, new_name))
+await item.save({
+    skipDateModifiedUpdate: true
+});
     }
 });
-return items_id.length + " tag(s) updated";
+return items.length + " tag(s) updated";
+
+// ---------------
+
+
+
+
+
+// ---------------
+// 程序5：（未验证）
+var collection = ZoteroPane.getSelectedCollection()
+var items = collection.getChildItems();
+return items;
+for (let item in items) {
+    item
+}
 
 // ---------------
