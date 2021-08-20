@@ -36,7 +36,7 @@ def addAttachment(args):
 
 
 # ------------
-# 函数：重命名标签（转载）
+# 函数：批量按照正则表达式方式重命名Zotero标签
 # -------------
 def renameTags(args):
     old_tag = args['old_tag']
@@ -101,8 +101,8 @@ if __name__ == "__main__":
     }
 
     args2 = {
-        'old_tag': '进度:粗看',
-        'new_tag': '进度：粗看',
+        'old_tag': '方法：复杂网络',
+        'new_tag': '【方法】：复杂网络',
         'zotero_object': zotero_object
     }
     # --------------------

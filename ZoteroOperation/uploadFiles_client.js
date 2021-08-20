@@ -104,9 +104,9 @@ if (!items.length) {
 // return(items)
 await Zotero.DB.executeTransaction(async function () {
     for (let item of items) {
-        let item = Zotero.Items.get(item);
+        item.add('tag',new_name)
         let mapped_field_id = zot.ItemFields.getFieldIDFromTypeAndBase(item.itemTypeID, fieldName);
-        item.setField(mappedFieldID ? mappedFieldID : fieldID, new_name))
+        item.setField(mapped_field_id ? mapped_field_id : fieldID, new_name))
 await item.save({
     skipDateModifiedUpdate: true
 });
@@ -126,7 +126,7 @@ var collection = ZoteroPane.getSelectedCollection()
 var items = collection.getChildItems();
 return items;
 for (let item in items) {
-    item
+    item.addTag('tag','进度：准备进行')
 }
 
 // ---------------
