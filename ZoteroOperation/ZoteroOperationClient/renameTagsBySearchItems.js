@@ -1,5 +1,5 @@
 // ---------------
-// 程序3-1：重命名检索获得的相关item之tag之名称
+// 程序：重命名检索获得的相关item之tag之名称
 var field_name = 'tag';
 var condition = 'contains';
 var num = 0; // num=0是手动，num=1是自动。

@@ -1,5 +1,5 @@
 // ---------------
-// 程序1：批量导入附件（已弃用）
+// 程序：批量导入附件（已弃用）
 // import md file.
 var file_json_title = "./ZoteroOperation/data/goal/mdfilestitlename.json"
 var fs = require('fs')

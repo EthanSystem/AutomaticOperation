@@ -1,6 +1,6 @@
-
 // ---------------
-// 程序4：重命名选取的相关item之tag之名称
+// 程序：重命名选取获得的相关item之tag之名称
+
 var old_name = "";
 var new_name = "【内容】：影子银行";
 var num = 0; // num=0是手动，num=1是自动。
@@ -19,5 +19,3 @@ await Zotero.DB.executeTransaction(async function () {
     }
 });
 return items.length + " tag(s) updated";
-
-// ---------------
