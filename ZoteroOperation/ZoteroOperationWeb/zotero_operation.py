@@ -4,7 +4,7 @@ from pyzotero import zotero as zt
 
 
 # ---------------------
-# 函数：批量添加附件
+# 函数：批量添加附件（弃用）
 # ---------------------
 def addAttachment(args):
     filepath_md_txt = args['filepath_md_txt']
