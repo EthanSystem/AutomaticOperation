@@ -1,3 +1,6 @@
+#!/bin/bash
+# Ethan Lin
+
 ## 程序：重命名各文件名以正则表达式规则。
 # 定义文件夹路径
 cd ./ZoteroOperation/data/mdfiles

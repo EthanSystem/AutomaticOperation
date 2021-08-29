@@ -1,0 +1,3 @@
+# StringOperation
+
+关于StringOperation下的文件，建议加入macOS系统中的Automator程序。

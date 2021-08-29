@@ -5,6 +5,7 @@
 
 # 定义文件夹路径
 cd ./ZoteroOperation/data/original
+# 设置
 # 正则替换文本内容，然后写入新的txt文件
 sed 's/^\([^】]*\)：\(.*\)$/【\1】：\2/' list_tags_original.txt | sed 's/^\([^】]*\)：\(.*\)$/\[\"【\1】：\2\"\],/' list_tags_original.txt
 
