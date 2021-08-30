@@ -1,0 +1,2 @@
+cd /Users/ethan/LocalFiles/CodesFile/AO/AutomaticOperation
+sh Operation/MarkdownOperation/renameLinksAtMarkdownFiles.sh "^(.*)(\[\[\()(.*)\,\s(.*)(\)\]\])(.*)$" "{"author":"\3","year":"\4"}," "/Users/ethan/LocalFiles/CodesFile/AO/AutomaticOperation/data/mdfiles/original.txt" "/Users/ethan/LocalFiles/CodesFile/AO/AutomaticOperation/data/output/output_01.txt"

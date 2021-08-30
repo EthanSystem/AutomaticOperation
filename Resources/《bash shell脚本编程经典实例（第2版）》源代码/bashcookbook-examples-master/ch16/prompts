@@ -1,0 +1,44 @@
+# cookbook filename: prompts
+
+# Username @ short hostname, the date and time, and the current working
+# directory (CWD):
+export PS1='[\u@\h \d \A] \w \$ '
+
+# Username @ long hostname, the date and time in ISO 8601 format, and the
+# basename of the current working directory (\W):
+export PS1='[\u@\H \D{%Y-%m-%d %H:%M:%S%z}] \W \$ '
+
+# Username @ short hostname, bash version, and the current working
+# directory (\w):
+export PS1='[\u@\h \V \w] \$ '
+
+# Newline, username @ short hostname, base PTY, shell level, history number,
+# newline, and full working directory name ($PWD):
+export PS1='\n[\u@\h \l:$SHLVL:\!]\n$PWD\$ '
+
+# Username @ short hostname, the exit status of the last command, and the
+# current working directory:
+export PS1='[\u@\h $? \w \$ '
+
+# Newline, username @ short hostname, and the number of jobs
+# in the background:
+export PS1='\n[\u@\h jobs:\j]\n$PWD\$ '
+
+# Newline, username @ short hostname, terminal, shell, level, history, jobs, 
+# version and full working directory name:
+export PS1='\n[\u@\h t:\l l:$SHLVL h:\! j:\j v:\V]\n$PWD\$ '
+
+# Newline, username @ short hostname, T for terminal, L for shell level, C 
+# command number, and the date and time in ISO 8601 format:
+export PS1='\n[\u@\h:T\l:L$SHLVL:C\!:\D{%Y-%m-%d_%H:%M:%S_%Z}]\n$PWD\$ '
+
+# Username @ short hostname, and the current working directory in light
+# blue:
+export PS1='\[\033[1;34m\][\u@\h:\w]\$\[\033[0m\] '
+
+# Username @ short hostname, and the current working directory in both the
+# xterm title bar and the prompt itself:
+export PS1='\[\033]0;\u@\h:\w\007\][\u@\h:\w]\$ '
+
+# Both color and xterm updates:
+export PS1='\[\033]0;\u@\h:\w\007\]\[\033[1;34m\][\u@\h:\w]\$\[\033[0m\] '
